@@ -1,0 +1,32 @@
+# Getting colors for zsh prompt
+#autoload -U colors && colors
+
+# Setting prompt header
+PS1=$'%1~ \e[0;31m%B〉\e[0;36m%B〉\e[0;95m%B〉\e[0m'
+
+# Tell ls to be colorful
+export CLICOLOR=1
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+# ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# weather aliases -> https://github.com/chubin/wttr.in
+alias wt='curl wttr.in'
+alias wt2='curl v2.wttr.in'
+
+# nvim aliases
+alias vi='nvim'
+alias vim='nvim'
+
+# numpy aliases
+alias np='/Users/huynguyen/workspace/ml-maths/interpreter.py'
+
+# brew aliases
+alias xbrew='arch -x86_64 /usr/local/bin/brew'
+alias brew='arch -arm64e /opt/homebrew/bin/brew'
+
+# Tell grep to highlight matches
+export GREP_OPTIONS='--color=auto'
