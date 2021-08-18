@@ -1,8 +1,25 @@
-# Getting colors for zsh prompt
-#autoload -U colors && colors
+# Git branch for zsh prompt
+function git_branch_name()
+{
+  branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
+  if [[ $branch == "" ]];
+  then
+    :
+  else
+    echo '\e[0;31m['$branch'] '
+  fi
+}
+
+# Enable substitution in the prompt.
+setopt prompt_subst
+
+# Config for prompt. PS1 synonym.
+prompt='%2/ $(git_branch_name) > '
+
 
 # Setting prompt header
-PS1=$'%1~ \e[0;31m%B〉\e[0;36m%B〉\e[0;95m%B〉\e[0m'
+#PS1=$'%1~ \e[0;31m%B〉\e[0;36m%B〉\e[0;95m%B〉\e[0m'
+PS1=$'%1~ \e[0;31m%B〉\e[0;36m%B〉\e[0;95m%B〉$(git_branch_name)\e[0m'
 
 # Tell ls to be colorful
 export CLICOLOR=1
@@ -22,11 +39,25 @@ alias vi='nvim'
 alias vim='nvim'
 
 # numpy aliases
-alias np='/Users/huynguyen/workspace/ml-maths/interpreter.py'
+alias np='~/workspace/utils/interpreter.py'
 
 # brew aliases
-alias xbrew='arch -x86_64 /usr/local/bin/brew'
-alias brew='arch -arm64e /opt/homebrew/bin/brew'
+alias brewu='~/workspace/utils/brewu.sh'
+
+# brew editor
+export HOMEBREW_EDITOR='nvim'
 
 # Tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
+
+# Clang brew
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/huynguyen/.sdkman"
+[[ -s "/Users/huynguyen/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/huynguyen/.sdkman/bin/sdkman-init.sh"
+
+# Tell Scipy where it can find openblas(installed through homebrew)
+export OPENBLAS=/opt/homebrew/opt/openblas/lib/

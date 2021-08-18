@@ -47,7 +47,7 @@ endfunction
 nnoremap <C-x> :call Toggle_transparent_background()<CR>
 
 " toggle NERDTree with fn + F5
-map <F5> :NERDTreeToggle<CR>
+" map <F5> :NERDTreeToggle<CR>
 
 " turn off auto-indent with F8
 nnoremap <F8> :setl noai nocin nosi inde=<CR>
@@ -55,8 +55,24 @@ nnoremap <F8> :setl noai nocin nosi inde=<CR>
 " execute scripts in nvim
 augroup exe_code
     autocmd!
-    " Python script
+    " Python
     autocmd FileType python nnoremap <buffer> <localleader>r
         \ :sp<CR> :term /Users/huynguyen/miniforge3/envs/math/bin/python3 %<CR> :startinsert<CR>
+
+    " Java
+    autocmd FileType java nnoremap <buffer> <localleader>r
+        \ :sp<CR> :term java -ea %<CR> :startinsert<CR>
+
+    " Scala
+    autocmd FileType scala nnoremap <buffer> <localleader>r
+        \ :sp<CR> :term scala %<CR> :startinsert<CR>
+
+    " Javascript
+    autocmd FileType javascript nnoremap <buffer> <localleader>r
+        \ :sp<CR> :term node %<CR> :startinsert<CR>
+
+    " Bash, sh
+    autocmd FileType bash,sh nnoremap <buffer> <localleader>r
+        \ :sp<CR> :term bash %<CR> :startinsert<CR>
 
 augroup END
