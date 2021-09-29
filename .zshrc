@@ -4,6 +4,10 @@ source ~/.config/zsh/settings
 # Define TERM colors 
 export TERM="xterm-256color"
 
+# Use nvim for man page
+#export MANPAGER="nvim -c 'set ft=man' -"
+export MANPAGER='nvim +Man!'
+
 # !! Contents within this block are managed by 'conda init' !!
 #__conda_setup="$('/Users/huynguyen/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 #if [ $? -eq 0 ]; then
