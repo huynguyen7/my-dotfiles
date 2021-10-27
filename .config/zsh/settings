@@ -16,6 +16,9 @@ setopt prompt_subst
 # Config for prompt. PS1 synonym.
 prompt='%2/ $(git_branch_name) > '
 
+# Enable/Disable stderr
+#exec 2>/dev/tty  # Use this to enable stderr.
+#exec 2>/dev/null  # Use this to disable stderr.
 
 # Setting prompt header
 #PS1=$'%1~ \e[0;31m%B〉\e[0;36m%B〉\e[0;95m%B〉\e[0m'
