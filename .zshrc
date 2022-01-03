@@ -5,11 +5,8 @@ source ~/.config/zsh/settings
 export TERM="xterm-256color"
 
 # Use nvim for man page
-<<<<<<< HEAD
 export MANPAGER="nvim -c 'set ft=man' -"
 
-# >>> conda initialize >>>
-=======
 #export MANPAGER="nvim -c 'set ft=man' -"
 export MANPAGER='nvim +Man!'
 
