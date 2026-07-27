@@ -13,6 +13,7 @@
 "call plug#begin('~/.vim/plugged')
 "Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 "Plug 'preservim/nerdtree'
+"Plug 'NLKNguyen/papercolor-theme'
 "Plug 'rose-pine/neovim'
 "Plug 'TovarishFin/vim-solidity'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -28,7 +29,9 @@
 "let g:rose_pine_variant="base"
 "colorscheme rose-pine
 
+set termguicolors
 set background=dark
+colorscheme papercolor
 
 " FZF
 "set rtp+=/usr/local/opt/fzf
